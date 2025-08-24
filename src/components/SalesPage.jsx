@@ -1,0 +1,25 @@
+import React from 'react';
+
+const SalesPage = ({ salesData, onClearData }) => {
+    const hasData = salesData.count > 0;
+    return (
+      <div className="container mx-auto p-8 text-center bg-gradient-to-r from-green-200 to-yellow-100 min-h-screen">
+        <h2 className="text-4xl font-bold text-gray-800 mb-8">Resumen de Ventas</h2>
+        <div className="max-w-xl mx-auto bg-white text-gray-600 rounded-lg shadow-lg p-8">
+          <h3 className="text-2xl font-semibold mb-4">Total de Ventas Globales</h3>
+          <p className="text-5xl font-extrabold">S/ {salesData.total.toFixed(2)}</p>
+          <p className="text-lg mt-4">Pedidos procesados: {salesData.count}</p>
+        </div>
+        <button
+          onClick={onClearData}
+          disabled={!hasData}
+          className={`mt-8 text-white font-bold py-3 px-6 rounded-full transition duration-300
+            ${hasData ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-400 cursor-not-allowed'}`}
+        >
+          Eliminar Historial de Ventas y Pedidos
+        </button>
+      </div>
+    );
+};
+
+export default SalesPage;
