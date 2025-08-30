@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './App.css';
+import RecyclingPointsPage from './components/RecyclingPointsPage';
 
 // Importa todos tus componentes
 import Header from './components/Header';
@@ -109,42 +110,53 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header
-        cartItemCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)}
-        onOpenCart={handleOpenCart}
-        onNavigate={setCurrentPage}
-      />
+    // Contenedor principal con el fondo aplicado a toda la aplicación
+    <div 
+      className="relative min-h-screen bg-fixed bg-no-repeat bg-cover" 
+      style={{ backgroundImage: `url('/src/assets/fondo_parallax.jpg')` }} // Asegúrate de que esta ruta sea correcta
+    >
+      {/* Capa semi-transparente para mejorar la legibilidad del texto */}
+      <div className="absolute inset-0 bg-green-500 opacity-60"></div>
 
-      <main className="flex-grow">
-        {currentPage === "home" && <HomePage onNavigate={setCurrentPage} />}
-        {currentPage === "about" && <AboutPage />}
-        {currentPage === "products" && <ProductsPage onAddToCart={handleAddToCart} />}
-        {currentPage === "orders" && <OrdersPage orders={userOrders} />}
-        {currentPage === "sales" && (
-          <SalesPage salesData={salesData} onClearData={handleClearData} />
-        )}
-        {currentPage === "contacts" && <ContactsPage />}
-        {currentPage === "posters" && <PostersPage onNavigate={setCurrentPage} />}
-      </main>
+      {/* Contenedor para todo el contenido visible, que debe estar sobre el fondo */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Header
+          cartItemCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+          onOpenCart={handleOpenCart}
+          onNavigate={setCurrentPage}
+        />
 
-      <Footer />
+        <main className="flex-grow">
+          {currentPage === "home" && <HomePage onNavigate={setCurrentPage} />}
+          {currentPage === "about" && <AboutPage />}
+          {currentPage === "products" && <ProductsPage onAddToCart={handleAddToCart} />}
+          {currentPage === "orders" && <OrdersPage orders={userOrders} />}
+          {currentPage === "sales" && (
+            <SalesPage salesData={salesData} onClearData={handleClearData} />
+          )}
+          {currentPage === "contacts" && <ContactsPage />}
+          {currentPage === "posters" && <PostersPage onNavigate={setCurrentPage} />}
+          {currentPage === "recyclingPoints" && <RecyclingPointsPage />}
+        </main>
 
-      <Cart
-        cartItems={cartItems}
-        onRemoveFromCart={handleRemoveFromCart}
-        onCloseCart={handleCloseCart}
-        isCartOpen={isCartOpen}
-        onCheckout={handleCheckout}
-      />
+        <Footer />
 
-      <Modal
-        isOpen={isModalOpen}
-        message={modalMessage}
-        onClose={() => setIsModalOpen(false)}
-        onConfirm={modalAction}
-        isConfirmation={isConfirmationModal}
-      />
+        <Cart
+          cartItems={cartItems}
+          onRemoveFromCart={handleRemoveFromCart}
+          onCloseCart={handleCloseCart}
+          isCartOpen={isCartOpen}
+          onCheckout={handleCheckout}
+        />
+
+        <Modal
+          isOpen={isModalOpen}
+          message={modalMessage}
+          onClose={() => setIsModalOpen(false)}
+          onConfirm={modalAction}
+          isConfirmation={isConfirmationModal}
+        />
+      </div>
     </div>
   );
 }

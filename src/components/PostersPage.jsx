@@ -7,18 +7,23 @@ import afichePersonal from '../assets/afiche_cuidado_personal.png';
 
 const PostersPage = ({ onNavigate }) => {
   return (
-    <div className="bg-gradient-to-r from-green-200 to-yellow-100 min-h-screen p-8 text-center">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-4xl font-bold text-center text-green-700 mb-4">Descubre Nuestras Promociones</h2>
-        <p className="text-lg text-center text-gray-600 mb-12">
-          En <span className="text-green-600 font-bold">Eco</span><span className="text-blue-600 font-bold">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
+    // Contenedor principal con la imagen de fondo y el efecto parallax
+    <div 
+      className="relative min-h-screen p-8 text-center bg-fixed bg-no-repeat bg-cover" 
+      style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }} // Reemplaza con tu imagen
+    >
+      <div className="absolute inset-0 bg-green-500 opacity-60"></div> {/* Capa semi-transparente */}
+      <div className="relative container mx-auto max-w-5xl z-10"> {/* Contenedor para el contenido */}
+        <h2 className="text-5xl font-bold text-yellow-400 mb-4">Descubre Nuestras Promociones</h2>
+        <p className="text-2xl text-white mb-12">
+          En <span className="text-green-800 font-bold text-3xl">Eco</span><span className="text-blue-800 text-3xl font-bold">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
         </p>
 
         {/* Afiche 1: Productos de la tierra */}
-        <div className="bg-gray-100 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
-          <img
-            src={aficheOrganico}
-            alt="Afiche de productos orgánicos y locales"
+        <div className="bg-white/80 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
+          <img 
+            src={aficheOrganico} 
+            alt="Afiche de productos orgánicos y locales" 
             className="w-full h-auto mx-auto rounded-2xl mb-4"
           />
           <p className="text-center text-gray-700 font-semibold text-lg">
@@ -27,10 +32,10 @@ const PostersPage = ({ onNavigate }) => {
         </div>
 
         {/* Afiche 2: Cuidado personal y ofertas */}
-        <div className="bg-gray-100 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
-          <img
+        <div className="bg-white/80 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
+          <img 
             src={afichePersonal}
-            alt="Afiche de productos de cuidado personal"
+            alt="Afiche de productos de cuidado personal" 
             className="w-full h-auto mx-auto rounded-2xl mb-4"
           />
           <p className="text-center text-gray-700 font-semibold text-lg">
@@ -39,10 +44,10 @@ const PostersPage = ({ onNavigate }) => {
         </div>
 
         {/* Afiche 3: Promociones y mensaje de marca */}
-        <div className="bg-gray-100 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
-          <img
-            src={aficheReciclaje}
-            alt="Afiche de promociones y reciclaje"
+        <div className="bg-white/80 rounded-3xl shadow-xl p-6 mb-12 transform transition-all duration-300 hover:scale-105">
+          <img 
+            src={aficheReciclaje} 
+            alt="Afiche de promociones y reciclaje" 
             className="w-full h-auto mx-auto rounded-2xl mb-4"
           />
           <p className="text-center text-gray-700 font-semibold text-lg">
@@ -50,13 +55,13 @@ const PostersPage = ({ onNavigate }) => {
           </p>
         </div>
 
-        <p className="text-center text-2xl font-bold text-green-700 mt-16">
+        <p className="text-center text-2xl font-bold text-white mt-16">
           "Cada pequeña elección sostenible hace una gran diferencia."
         </p>
 
-        <button
-          onClick={() => onNavigate('products')}
-          className="mt-8 py-2 px-4 text-lg bg-green-600 text-white font-bold rounded-2xl cursor-pointer hover:bg-green-400 transition-colors duration-300">
+        <button 
+          onClick={() => onNavigate('products')} 
+          className="mt-8 py-2 px-4 text-lg bg-blue-800 text-white font-bold rounded-2xl cursor-pointer hover:bg-blue-500 transition-colors duration-300">
           Ver Productos
         </button>
 

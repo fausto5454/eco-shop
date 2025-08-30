@@ -62,7 +62,7 @@ const productsData = {
 };
 
 const ProductsPage = ({ onAddToCart }) => (
-  <div className="bg-gradient-to-r from-green-200 to-yellow-100 min-h-screen p-8">
+  <div className="bg-gradient-to-r from-green-350 to-green-350 min-h-screen p-8">
     <div className="container mx-auto">
       <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
         Nuestros Productos Ecológicos

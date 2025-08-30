@@ -4,18 +4,18 @@ const OrdersPage = ({ orders }) => {
   const methodClass = (m) => {
     if (m === 'Tarjeta') return 'text-blue-600 font-semibold';
     if (m === 'Yape') return 'text-orange-400 font-semibold';
-    if (m === 'Plin') return 'text-green-600 font-semibold';
+    if (m === 'Plin') return 'text-purple-700 font-semibold';
     return 'text-gray-700 font-semibold';
   };
   return (
-    <div className="container mx-auto p-8 bg-gradient-to-r from-green-200 to-yellow-100 min-h-screen">
+    <div className="container mx-auto p-8 bg-gradient-to-r from-green-350 to-green-350 min-h-screen">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Mis Pedidos</h2>
       {orders.length === 0 ? (
         <p className="text-center text-gray-500 mt-10">Aún no has realizado ningún pedido.</p>
       ) : (
         <div className="grid gap-6 max-w-4xl mx-auto">
           {orders.map(order => (
-            <div key={order.id} className="bg-white rounded-lg shadow-lg p-6">
+            <div key={order.id} className="bg-white rounded-2xl shadow-lg p-6">
               <div className="flex justify-between items-center border-b pb-4 mb-4">
                 <span className="font-bold text-gray-900">Pedido #{order.id.slice(0, 8)}</span>
                 <span className="text-sm text-gray-500">

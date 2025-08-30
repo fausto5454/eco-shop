@@ -12,6 +12,7 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
     { name: 'Ventas', page: 'sales' },
     { name: 'Publicidad', page: 'posters' },
     { name: 'Contactos', page: 'contacts' },
+    { name: 'Recicla y Gana', page: 'recyclingPoints' },
   ];
 
   const toggleMobileMenu = () => {
@@ -19,7 +20,7 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-green-200 via-green-400 to-white shadow-lg sticky top-0 z-40">
+    <header className="bg-gradient-to-r from-yellow-200 via-green-400 to-yellow-100 shadow-lg sticky top-0 z-40">
       <div className="container mx-auto flex items-center justify-between p-2">
         <div className="flex items-center space-x-4">
           <button
@@ -40,7 +41,8 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
               <li key={item.page}>
                 <button
                   onClick={() => onNavigate(item.page)}
-                  className="text-gray-700 hover:text-red-500 font-bold text-2xl transition-colors duration-200"
+                  // Aplica el color verde solo a "Recicla y Gana"
+                  className={`${item.name === 'Recicla y Gana' ? 'text-green-600 hover:text-yellow-500' : 'text-gray-700'} hover:text-red-500 font-bold text-2xl transition-colors duration-200`}
                 >
                   {item.name}
                 </button>
@@ -74,7 +76,8 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
                     onNavigate(item.page);
                     toggleMobileMenu();
                   }}
-                  className="text-gray-700 hover:text-red-500 font-bold text-lg w-full text-left"
+                  // Aplica el color verde solo a "Recicla y Gana"
+                  className={`${item.name === 'Recicla y Gana' ? 'text-green-600 hover:text-yellow-500' : 'text-gray-700'} hover:text-red-500 font-bold text-2xl transition-colors duration-200`}
                 >
                   {item.name}
                 </button>
@@ -86,5 +89,9 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
     </header>
   );
 };
-
+<li className="nav-item">
+  <a href="#" onClick={() => onNavigate('recyclingPoints')}>
+    Recicla y Gana
+  </a>
+</li>
 export default Header;
