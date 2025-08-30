@@ -4,7 +4,7 @@ import AdComponent from './AdComponent';
 import Carousel from './Carousel'; // <-- ¡Asegúrate de importar tu componente de carrusel aquí!
 
 const HomePage = ({ onNavigate }) => (
-  <div className="bg-gradient-to-r from-green-350 to-green-350 min-h-screen flex flex-col items-center p-8">
+  <div className="bg-gradient-to-r from-green-200 to-green-200 min-h-screen flex flex-col items-center p-8">
     <Carousel /> {/* <-- ¡Añadido aquí! */}
 
     <div className="container mx-auto flex flex-col md:flex-row items-center justify-center p-12 bg-white rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105">
@@ -13,7 +13,7 @@ const HomePage = ({ onNavigate }) => (
           Un futuro <span className="text-green-600">sostenible</span> a tu alcance
         </h2>
         <p className="text-xl text-gray-600 mb-6">
-          En <span className="text-green-600 font-bold">Eco</span><span className="text-blue-600 font-bold">Shop</span>, nos dedicamos a ofrecer productos ecológicos de alta calidad que te ayudan a cuidar el planeta sin sacrificar tu estilo de vida.
+          En <span className="text-green-600 font-bold">Eco</span><span className="text-blue-600 font-bold">Shopping</span>, nos dedicamos a ofrecer productos ecológicos de alta calidad que te ayudan a cuidar el planeta sin sacrificar tu estilo de vida.
         </p>
         <button 
           onClick={() => onNavigate('products')}

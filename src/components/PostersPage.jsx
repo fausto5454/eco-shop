@@ -12,10 +12,10 @@ const PostersPage = ({ onNavigate }) => {
       className="relative min-h-screen p-8 text-center bg-fixed bg-no-repeat bg-cover" 
       style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }} // Reemplaza con tu imagen
     >
-      <div className="absolute inset-0 bg-green-500 opacity-60"></div> {/* Capa semi-transparente */}
+      <div className="absolute inset-0 bg-green-300 opacity-60"></div> {/* Capa semi-transparente */}
       <div className="relative container mx-auto max-w-5xl z-10"> {/* Contenedor para el contenido */}
-        <h2 className="text-5xl font-bold text-yellow-400 mb-4">Descubre Nuestras Promociones</h2>
-        <p className="text-2xl text-white mb-12">
+        <h2 className="text-5xl font-bold text-yellow-300 mb-4">Descubre Nuestras Promociones</h2>
+        <p className="text-2xl text-white font-bold mb-12">
           En <span className="text-green-800 font-bold text-3xl">Eco</span><span className="text-blue-800 text-3xl font-bold">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
         </p>
 

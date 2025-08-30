@@ -4,7 +4,7 @@ const Modal = ({ isOpen, message, onClose, onConfirm, isConfirmation }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-green-200 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center z-50">
       <div className="bg-white p-8 rounded-lg shadow-xl max-w-sm mx-auto transform transition-all scale-100 duration-300">
         <div className="text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">{isConfirmation ? 'Confirmar Acción' : '¡Éxito!'}</h3>
