@@ -15,8 +15,8 @@ const PostersPage = ({ onNavigate }) => {
       <div className="absolute inset-0 bg-green-100 opacity-60"></div> {/* Capa semi-transparente */}
       <div className="relative container mx-auto max-w-5xl z-10"> {/* Contenedor para el contenido */}
         <h2 className="text-4xl font-bold text-green-700 mb-4">Descubre Nuestras Promociones</h2>
-        <p className="text-green-800 text-2xl mb-12">
-          En <span className="text-green-600 font-bold underline text-2xl">Eco</span><span className="text-blue-600 text-1xl font-bold underline">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
+        <p className="text-gray-700 text-2xl mb-12">
+          En <span className="text-green-600 font-bold text-3xl">Eco</span><span className="text-blue-600 text-3xl font-bold">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
         </p>
 
         {/* Afiche 1: Productos de la tierra */}

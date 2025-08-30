@@ -5,7 +5,7 @@ const AboutPage = () => (
     <h2 className="text-4xl font-bold text-center text-green-800 mb-8">Nuestra Historia</h2>
     <div className="max-w-4xl mx-auto space-y-6 text-lg leading-relaxed">
       <p className='text-slate-900'>
-        En <span className="text-green-600 font-bold underline">Eco</span><span className="text-blue-600 font-bold underline">Shopping</span>, creemos firmemente que un consumo consciente puede marcar una gran diferencia. Fundada en 2025, nuestra misión es simple: Hacer que sea fácil para las personas elegir productos que sean buenos para ellos y para el planeta. Nos apasiona la sostenibilidad y trabajamos incansablemente para crear una colección de productos ecológicos que sean de alta calidad, duraderos y hermosos.
+        En <span className="text-green-600 font-bold text-2xl">Eco</span><span className="text-blue-600 font-bold text-2xl">Shopping</span>, creemos firmemente que un consumo consciente puede marcar una gran diferencia. Somos un equipo emprendedor de estudiantes raimondinos fundado en 2025, nuestra misión es simple: Hacer que sea fácil para las personas elegir productos que sean buenos para ellos y para el planeta. Nos apasiona la sostenibilidad y trabajamos incansablemente para crear una colección de productos ecológicos que sean de alta calidad, duraderos y hermosos.
       </p>
       <p className='text-slate-900'>
         Cada artículo en nuestra tienda ha sido cuidadosamente seleccionado y probado para asegurar que cumple con nuestros estrictos estándares éticos y ecológicos. Colaboramos con artesanos y pequeños productores locales que comparten nuestros valores, garantizando que cada compra apoya a la comunidad y a prácticas de producción responsables.

@@ -33,7 +33,7 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate }) => {
               <span className={`hamburger-line ${isMobileMenuOpen ? 'hamburger-line-open' : ''}`}></span>
             </div>
           </button>
-          <img src={EcoShoppingImage} alt="Logo de la Empresa" className="h-22 w-22" />
+          <img src={EcoShoppingImage} alt="Logo de la Empresa" className="h-20 w-35" />
         </div>
         <nav className="hidden md:flex flex-grow justify-center">
           <ul className="flex space-x-8">
