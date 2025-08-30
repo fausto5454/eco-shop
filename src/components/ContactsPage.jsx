@@ -16,9 +16,9 @@ const ContactsPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-200 to-green-200 min-h-screen p-8">
+    <div className="bg-gradient-to-r from-green-100 to-green-100 min-h-screen p-8">
       <div className="container mx-auto max-w-2xl">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Contáctanos</h2>
+        <h2 className="text-4xl font-bold text-center text-green-800 mb-8">Contáctanos</h2>
         <p className="text-lg text-center text-gray-700 mb-8">
           ¿Tienes alguna pregunta o comentario? Rellena el siguiente formulario y nos pondremos en contacto contigo lo antes posible.
         </p>

@@ -37,7 +37,7 @@ const RecyclingPointsPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-200 to-green-200 min-h-screen p-8 text-center">
+    <div className="bg-gradient-to-r from-green-100 to-green-100 min-h-screen p-8 text-center">
       <div className="container mx-auto max-w-2xl bg-white p-8 rounded-4xl shadow-xl">
         <h2 className="text-4xl font-bold text-green-700 mb-4">Mis EcoPuntos</h2>
         <p className="text-lg text-gray-600 mb-8">
@@ -45,7 +45,7 @@ const RecyclingPointsPage = () => {
         </p>
 
         <div className="bg-yellow-200 p-6 rounded-2xl mb-8">
-          <h3 className="text-2xl font-bold text-green-600">
+          <h3 className="text-2xl font-bold text-green-700">
             Total de Puntos Acumulados
           </h3>
           <p className="text-5xl font-extrabold text-green-600 mt-4">{points}</p>

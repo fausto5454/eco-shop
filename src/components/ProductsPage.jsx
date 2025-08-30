@@ -62,9 +62,9 @@ const productsData = {
 };
 
 const ProductsPage = ({ onAddToCart }) => (
-  <div className="bg-gradient-to-r from-green-200 to-green-200 min-h-screen p-8">
+  <div className="bg-gradient-to-r from-green-100 to-green-100 min-h-screen p-8">
     <div className="container mx-auto">
-      <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
+      <h2 className="text-4xl font-bold text-center text-green-800 mb-10">
         Nuestros Productos Ecológicos
       </h2>
       {Object.entries(productsData).map(([category, products]) => (

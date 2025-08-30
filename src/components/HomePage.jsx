@@ -4,7 +4,7 @@ import AdComponent from './AdComponent';
 import Carousel from './Carousel'; // <-- ¡Asegúrate de importar tu componente de carrusel aquí!
 
 const HomePage = ({ onNavigate }) => (
-  <div className="bg-gradient-to-r from-green-200 to-green-200 min-h-screen flex flex-col items-center p-8">
+  <div className="bg-gradient-to-r from-green-100 to-green-100 min-h-screen flex flex-col items-center p-8">
     <Carousel /> {/* <-- ¡Añadido aquí! */}
 
     <div className="container mx-auto flex flex-col md:flex-row items-center justify-center p-12 bg-white rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105">

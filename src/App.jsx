@@ -112,8 +112,8 @@ function App() {
   return (
     // Contenedor principal con el fondo aplicado a toda la aplicación
     <div 
-      className="relative min-h-screen bg-fixed bg-no-repeat bg-cover" 
-      style={{ backgroundImage: `url('/src/assets/fondo_parallax.jpg')` }} // Asegúrate de que esta ruta sea correcta
+      className="relative min-h-screen bg-green-100 bg-no-repeat bg-cover" 
+      style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }} // Asegúrate de que esta ruta sea correcta
     >
       {/* Capa semi-transparente para mejorar la legibilidad del texto */}
       <div className="absolute inset-0 bg-green-500 opacity-60"></div>

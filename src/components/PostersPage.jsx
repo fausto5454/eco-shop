@@ -9,14 +9,14 @@ const PostersPage = ({ onNavigate }) => {
   return (
     // Contenedor principal con la imagen de fondo y el efecto parallax
     <div 
-      className="relative min-h-screen p-8 text-center bg-fixed bg-no-repeat bg-cover" 
+      className="relative min-h-screen p-8 text-center bg-green-100 bg-no-repeat bg-cover" 
       style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }} // Reemplaza con tu imagen
     >
-      <div className="absolute inset-0 bg-green-300 opacity-60"></div> {/* Capa semi-transparente */}
+      <div className="absolute inset-0 bg-green-100 opacity-60"></div> {/* Capa semi-transparente */}
       <div className="relative container mx-auto max-w-5xl z-10"> {/* Contenedor para el contenido */}
-        <h2 className="text-5xl font-bold text-yellow-300 mb-4">Descubre Nuestras Promociones</h2>
-        <p className="text-2xl text-white font-bold mb-12">
-          En <span className="text-green-800 font-bold text-3xl">Eco</span><span className="text-blue-800 text-3xl font-bold">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
+        <h2 className="text-4xl font-bold text-green-700 mb-4">Descubre Nuestras Promociones</h2>
+        <p className="text-green-800 text-2xl mb-12">
+          En <span className="text-green-600 font-bold underline text-2xl">Eco</span><span className="text-blue-600 text-1xl font-bold underline">Shopping</span>, nuestro compromiso es contigo y con el planeta. Explora nuestros afiches y descubre cómo juntos podemos construir un futuro más sostenible.
         </p>
 
         {/* Afiche 1: Productos de la tierra */}
@@ -55,13 +55,13 @@ const PostersPage = ({ onNavigate }) => {
           </p>
         </div>
 
-        <p className="text-center text-2xl font-bold text-white mt-16">
+        <p className="text-center text-2xl font-bold text-green-700 mt-16">
           "Cada pequeña elección sostenible hace una gran diferencia."
         </p>
 
         <button 
           onClick={() => onNavigate('products')} 
-          className="mt-8 py-2 px-4 text-lg bg-blue-800 text-white font-bold rounded-2xl cursor-pointer hover:bg-blue-500 transition-colors duration-300">
+          className="mt-8 py-2 px-4 text-lg bg-green-600 text-white font-bold rounded-2xl cursor-pointer hover:bg-green-400 transition-colors duration-300">
           Ver Productos
         </button>
 

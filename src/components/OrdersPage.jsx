@@ -9,7 +9,7 @@ const OrdersPage = ({ orders }) => {
   };
   return (
     <div className="container mx-auto p-8 bg-gradient-to-r from-green-200 to-green-200 min-h-screen">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Mis Pedidos</h2>
+      <h2 className="text-4xl font-bold text-center text-green-800 mb-4">Mis Pedidos</h2>
       {orders.length === 0 ? (
         <p className="text-center text-gray-500 mt-10">Aún no has realizado ningún pedido.</p>
       ) : (
