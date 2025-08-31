@@ -39,8 +39,8 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate, userPoints }) => {
                             <FaBars className="h-6 w-6" />
                         )}
                     </button>
-                    {/* Texto EcoShopping redimensionado */}
-                    <img src={EcoShoppingImage} alt="Logo de la Empresa" className="h-18 w-auto" /> {/* Ajusta el h y w si es necesario */}
+                    {/* Logo de EcoShopping siempre visible */}
+                    <img src={EcoShoppingImage} alt="Logo de la Empresa" className="h-18 w-auto" />
                 </div>
 
                 <nav className="hidden md:flex flex-grow justify-center">
@@ -59,12 +59,17 @@ const Header = ({ cartItemCount, onOpenCart, onNavigate, userPoints }) => {
                 </nav>
 
                 <div className="flex items-center space-x-4">
-                    {/* Margen del logo institucional ajustado */}
+                    {/* Logo Institucional para escritorio */}
                     <img src={logoImage} alt="Logo Institucional" className="h-18 w-20 mr-4 hidden md:block" /> 
+                    
+                    {/* Logo Institucional para móvil */}
+                    <img src={logoImage} alt="Logo Institucional" className="h-12 w-auto md:hidden" />
+                    
                     <div className="hidden md:flex items-center space-x-1 text-sm font-bold text-gray-700">
                         <span>EcoPuntos:</span>
                         <span className="text-green-700">{userPoints}</span>
                     </div>
+                    
                     <button onClick={onOpenCart} className="relative text-gray-700 hover:text-red-500 transition-colors duration-300">
                         <FaShoppingCart className="h-7 w-7" />
                         {cartItemCount > 0 && (
