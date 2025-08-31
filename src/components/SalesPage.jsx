@@ -14,7 +14,7 @@ const SalesPage = ({ salesData, onClearData }) => {
           onClick={onClearData}
           disabled={!hasData}
           className={`mt-8 text-white font-bold py-3 px-6 rounded-full transition duration-300
-            ${hasData ? 'bg-slate-700 hover:bg-red-400' : 'bg-gray-400 cursor-not-allowed'}`}
+            ${hasData ? 'bg-red-600 hover:bg-red-400' : 'bg-gray-400 cursor-not-allowed'}`}
         >
           Eliminar Historial de Ventas y Pedidos
         </button>

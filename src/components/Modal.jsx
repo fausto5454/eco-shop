@@ -14,14 +14,14 @@ const Modal = ({ isOpen, message, onClose, onConfirm, isConfirmation }) => {
           {isConfirmation && (
             <button
               onClick={onClose}
-              className="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-400 transition-colors"
+              className="w-full bg-blue-600 text-white py-2 rounded-full font-semibold hover:bg-blue-400 transition-colors"
             >
               Cancelar
             </button>
           )}
           <button
             onClick={() => (onConfirm ? onConfirm() : onClose())}
-            className="w-full bg-red-600 text-white py-2 rounded-full font-semibold hover:bg-red-400 transition-colors"
+            className="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-400 transition-colors"
           >
             {isConfirmation ? 'Confirmar' : 'Aceptar'}
           </button>

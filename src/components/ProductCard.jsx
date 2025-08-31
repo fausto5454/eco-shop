@@ -1,12 +1,20 @@
 import React from 'react';
+import { FaLeaf } from 'react-icons/fa'; // Importa el ícono de la hoja de React Icons
 
 const ProductCard = ({ product, onAddToCart }) => (
   <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
     <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
     <div className="p-5 flex flex-col justify-between h-56">
-      <div>
+      <div className="relative">
         <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
         <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+        
+        {/* Renderizado condicional del ícono */}
+        {product.isEcoProduct && (
+          <div className="absolute top-0 right-0 p-1 bg-green-500 rounded-full">
+            <FaLeaf className="text-white text-sm" />
+          </div>
+        )}
       </div>
       <div className="flex justify-between items-center mt-4">
         <span className="text-2xl font-bold text-green-700">S/ {product.price.toFixed(2)}</span>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './App.css';
 import RecyclingPointsPage from './components/RecyclingPointsPage';
+import ProductsPage from './components/ProductsPage';
 
 // Importa todos tus componentes
 import Header from './components/Header';
@@ -12,7 +13,6 @@ import Cart from './components/Cart';
 import Modal from './components/Modal';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
-import ProductsPage from './components/ProductsPage';
 import OrdersPage from './components/OrdersPage';
 import SalesPage from './components/SalesPage';
 import ContactsPage from './components/ContactsPage';
@@ -28,15 +28,23 @@ function App() {
   const [modalMessage, setModalMessage] = useState("");
   const [modalAction, setModalAction] = useState(null);
   const [isConfirmationModal, setIsConfirmationModal] = useState(false);
+  const [userPoints, setUserPoints] = useState(0);
 
   useEffect(() => {
     const storedOrders = JSON.parse(localStorage.getItem("userOrders")) || [];
     setUserOrders(storedOrders);
     const storedSales = JSON.parse(localStorage.getItem("salesData")) || { total: 0, count: 0 };
     setSalesData(storedSales);
+    const storedPoints = JSON.parse(localStorage.getItem("userPoints")) || 0;
+    setUserPoints(storedPoints);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("userPoints", JSON.stringify(userPoints));
+  }, [userPoints]);
+
   const handleAddToCart = (product) => {
+    // Lógica para añadir el producto al carrito
     setCartItems((prevItems) => {
       const exists = prevItems.find((item) => item.id === product.id);
       if (exists) {
@@ -46,10 +54,46 @@ function App() {
       }
       return [...prevItems, { ...product, quantity: 1 }];
     });
+  
+    // Lógica para añadir ecopuntos si el producto es ecológico
+    if (product.isEcoProduct) {
+      setUserPoints(prevPoints => prevPoints + 10);
+      alert(`¡Felicidades! Ganaste 10 EcoPuntos por tu compra ecológica.`);
+    }
+
+    // ELIMINA la línea "setIsCartOpen(true)" de aquí
   };
 
   const handleRemoveFromCart = (productId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
+  };
+
+  // Nueva función para incrementar la cantidad de un producto
+  const handleIncrementQuantity = (product) => {
+    setCartItems((prevItems) => {
+      const exists = prevItems.find((item) => item.id === product.id);
+      if (exists) {
+        return prevItems.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return prevItems;
+    });
+  };
+
+  const handleDecrementQuantity = (product) => {
+  setCartItems((prevItems) => {
+    // Si la cantidad es 1, lo elimina del carrito
+    if (product.quantity === 1) {
+      return prevItems.filter((item) => item.id !== product.id);
+    } 
+    // Si la cantidad es mayor que 1, la disminuye en 1
+    else {
+      return prevItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+    }
+   });
   };
 
   const handleOpenCart = () => setIsCartOpen(true);
@@ -101,29 +145,50 @@ function App() {
     setModalAction(() => () => {
       localStorage.removeItem("userOrders");
       localStorage.removeItem("salesData");
+      localStorage.removeItem("userPoints");
 
       setUserOrders([]);
       setSalesData({ total: 0, count: 0 });
+      setUserPoints(0);
 
       setIsModalOpen(false);
     });
   };
 
+  const handleAddEcoPoints = (points) => {
+    setUserPoints(prevPoints => prevPoints + points);
+    setModalMessage(`¡Felicidades! Has añadido ${points} EcoPuntos.`);
+    setIsModalOpen(true);
+    setIsConfirmationModal(false);
+  };
+
+  const handleRedeemEcoPoints = (amount) => {
+    if (userPoints >= amount) {
+      setUserPoints(prevPoints => prevPoints - amount);
+      setModalMessage(`¡Canje exitoso! Se ha aplicado un descuento de S/ ${amount / 20}.00`);
+      setIsModalOpen(true);
+      setIsConfirmationModal(false);
+      return true;
+    } else {
+      setModalMessage('Puntos insuficientes para canjear.');
+      setIsModalOpen(true);
+      setIsConfirmationModal(false);
+      return false;
+    }
+  };
+
   return (
-    // Contenedor principal con el fondo aplicado a toda la aplicación
     <div 
       className="relative min-h-screen bg-green-100 bg-no-repeat bg-cover" 
-      style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }} // Asegúrate de que esta ruta sea correcta
+      style={{ backgroundImage: `url('/src/assets/fondo_parallax.png')` }}
     >
-      {/* Capa semi-transparente para mejorar la legibilidad del texto */}
       <div className="absolute inset-0 bg-green-500 opacity-60"></div>
-
-      {/* Contenedor para todo el contenido visible, que debe estar sobre el fondo */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header
           cartItemCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)}
           onOpenCart={handleOpenCart}
           onNavigate={setCurrentPage}
+          userPoints={userPoints}
         />
 
         <main className="flex-grow">
@@ -136,7 +201,13 @@ function App() {
           )}
           {currentPage === "contacts" && <ContactsPage />}
           {currentPage === "posters" && <PostersPage onNavigate={setCurrentPage} />}
-          {currentPage === "recyclingPoints" && <RecyclingPointsPage />}
+          {currentPage === "recyclingPoints" && (
+            <RecyclingPointsPage
+              userPoints={userPoints}
+              onAddPoints={() => handleAddEcoPoints(20)}
+              onRedeemPoints={() => handleRedeemEcoPoints(100)}
+            />
+          )}
         </main>
 
         <Footer />
@@ -147,6 +218,8 @@ function App() {
           onCloseCart={handleCloseCart}
           isCartOpen={isCartOpen}
           onCheckout={handleCheckout}
+          onIncrementQuantity={handleIncrementQuantity} // Aquí pasas la nueva función
+          onDecrementQuantity={handleDecrementQuantity}
         />
 
         <Modal
