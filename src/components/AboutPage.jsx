@@ -13,17 +13,21 @@ const AboutPage = () => {
                     <img 
                         src={fotoReflexionImage} 
                         alt="Equipo de EcoShopping" 
-                        className="mt-40 w-full h-auto rounded-lg shadow-lg"
+                        className="mt-25 w-full h-auto rounded-lg shadow-lg"
                         /> 
-                    
+
                     {/* Render the text components over the image */}
                     <OverlayText 
                         text="Equipo emprendedor"
-                        customTop="top-15" // Ajusta este valor para la primera línea
+                        customTop="top-0" // Ajusta este valor para la primera línea
                     />
                     <OverlayText 
-                        text="I.E. N° 2079-A.R"
-                        customTop="top-25" // Ajusta este valor para la segunda línea
+                        text="EcoShopping 2025"
+                        customTop="top-9" // Ajusta este valor para la segunda línea
+                    />
+                     <OverlayText 
+                        text="I.E. N° 2079-A.R."
+                        customTop="top-83" // Ajusta este valor para la segunda línea
                     />
                 </div>
                 

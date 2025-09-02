@@ -6,9 +6,9 @@ const OverlayText = ({ text, customTop }) => { // Añadimos 'customTop' como pro
             className={`absolute ${customTop} left-1/2 -translate-x-1/2 text-center`} // Usamos customTop aquí
             style={{ 
                 color: 'white', 
-                fontSize: '2rem', 
+                fontSize: '1.6rem', 
                 fontWeight: 'bold', 
-                textShadow: '2px 4px 4px rgba(0, 0, 0, 1)',
+                textShadow: '3px 4px 4px rgba(0, 0, 0, 1)',
                 whiteSpace: 'nowrap'
             }}
         >
